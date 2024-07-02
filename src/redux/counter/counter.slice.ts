@@ -7,7 +7,7 @@ export interface CounterState {
 }
 
 const initialState: CounterState = {
-    value: 0,
+    value: 10,
     name: "pildo",
     address: { name: 'ha noi', code: 100000 }
 }
