@@ -7,7 +7,9 @@ function App() {
   return (
     <>
       <Header />
-      <TabContent />
+      <div style={{ maxWidth: '1800px', margin: 'auto' }}>
+        <TabContent />
+      </div >
     </>
   )
 }
