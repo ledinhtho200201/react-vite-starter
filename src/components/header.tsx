@@ -1,7 +1,10 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import { useAppSelector } from '../redux/hook';
 
 function Header() {
+    const users = useAppSelector(state => state.user.listUsers)
+
     return (
         <Navbar className="bg-body-tertiary">
             <Container>
@@ -9,7 +12,7 @@ function Header() {
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                     <Navbar.Text>
-                        Learn redux: <a href="#login">Mark Otto</a>
+                        Learn redux: <a href="#login">Mark Otto {users.length}</a>
                     </Navbar.Text>
                 </Navbar.Collapse>
             </Container>
