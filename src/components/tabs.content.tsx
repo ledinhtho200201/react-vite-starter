@@ -1,6 +1,7 @@
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import UserTable from './users.table';
+import BlogTable from './blogs.table';
 
 function TabContent() {
     return (
@@ -14,7 +15,7 @@ function TabContent() {
                 <UserTable />
             </Tab>
             <Tab eventKey="blog" title="Blogs">
-                Tab content for Profile
+                <BlogTable />
             </Tab>
         </Tabs>
     );
