@@ -21,7 +21,6 @@ function UserTable() {
 
     useEffect(() => {
         dispatch(fetchListUsers())
-        toast('🦄 Wow so easy!')
     }, [])
 
     const handleEditUser = (user: any) => {

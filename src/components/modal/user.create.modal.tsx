@@ -2,10 +2,14 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../redux/hook';
+import { createNewUser, resetCreate } from '../../redux/user/user.slice';
+import { toast } from 'react-toastify';
 
 const UserCreateModal = (props: any) => {
     const { isOpenCreateModal, setIsOpenCreateModal } = props;
+    const dispatch = useAppDispatch();
 
     const [email, setEmail] = useState<string>("");
     const [name, setName] = useState<string>("");
@@ -19,8 +23,23 @@ const UserCreateModal = (props: any) => {
             alert("name empty");
             return;
         }
+        // call api -> call redux
         console.log(">>> check create: ", { email, name })
+        dispatch(createNewUser({ email, name })) // payload
     }
+
+    const isCreateSuccess = useAppSelector(state => state.user.isCreateSuccess)
+
+    useEffect(() => {
+        if (isCreateSuccess === true) {
+            setIsOpenCreateModal(false)
+            setEmail("")
+            setName("")
+            toast('🦄 Wow so easy! Create succeed')
+            // reset redux
+            dispatch(resetCreate())
+        }
+    }, [isCreateSuccess])
 
     return (
         <>
