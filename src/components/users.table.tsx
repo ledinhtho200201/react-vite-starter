@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import { useAppDispatch, useAppSelector } from '../redux/hook';
 import { fetchListUsers } from '../redux/user/user.slice';
-import { toast } from 'react-toastify';
 import { Button } from 'react-bootstrap';
 import UserCreateModal from './modal/user.create.modal';
 import UserEditModal from './modal/user.edit.modal';
